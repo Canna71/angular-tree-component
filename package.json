@@ -43,7 +43,7 @@
     "example:cli2": "./node_modules/.bin/ngc && cd example/cli2 && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && ./node_modules/.bin/ng serve",
     "example:cli4": "./node_modules/.bin/ngc && cd example/cli4 && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && ./node_modules/.bin/ng serve",
     "example:cli": "./node_modules/.bin/ngc && cp lib/angular-tree-component.css dist && cd example/cli && npm install && cp -rf ../../dist node_modules/angular-tree-component/ && ./node_modules/.bin/ng serve",
-    "boh": "cp lib/angular-tree-component.css dist && cd example\\cli && cp -rf ../../dist node_modules/angular-tree-component/ && ./node_modules/.bin/ng serve",
+    "boh": ".\\node_modules\\.bin\\ngc && cp lib\\angular-tree-component.css dist && cd example\\cli && cp -rf ../../dist node_modules/angular-tree-component/",
     "example:cli:win": ".\\node_modules\\.bin\\ngc && cp lib\\angular-tree-component.css dist && cd example\\cli && npm install && cp -rf ..\\..\\dist node_modules\\angular-tree-component\\  && .\\node_modules\\.bin\\ng serve",
     "selupdate": "webdriver-manager update",
     "selenium": "webdriver-manager update && webdriver-manager start",

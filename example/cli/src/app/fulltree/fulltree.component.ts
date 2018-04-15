@@ -38,7 +38,7 @@ const actionMapping: IActionMapping = {
   ],
   template: `
   <form>
-    <input #filter (keyup)="filterNodes(filter.value, tree)" placeholder="filter nodes"/>
+    Filter nodes: <input #filter (keyup)="filterNodes(filter.value, tree)" placeholder="filter nodes"/>
   </form>
   <div style="height: 400px; width: 400px; overflow: hidden;">
 
@@ -109,7 +109,7 @@ const actionMapping: IActionMapping = {
 })
 export class FullTreeComponent implements OnInit {
   nodes: any[];
-  nodes2 = [{name: 'root'}, {name: 'root2'}];
+  nodes2 = [{ name: 'root' }, { name: 'root2' }];
   asyncChildren = new Array(4).fill(null).map((item, n) => ({
     name: 'async child2.' + n,
     subTitle: 'async child ' + n,

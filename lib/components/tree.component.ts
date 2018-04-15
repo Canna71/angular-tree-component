@@ -17,10 +17,16 @@ import pick from 'lodash/pick';
   styles: [],
   template: `
     <tree-viewport #viewport>
-      <div
+      <div style="border: 1px solid pink"
+        role="grid"
+        style="grid-template-columns: repeat(3, auto);"
         class="angular-tree-component"
         [class.node-dragging]="treeDraggedElement.isDragging()"
         [class.angular-tree-component-rtl]="treeModel.options.rtl">
+        <div role="columnheader">Item</div>
+        <div role="columnheader">Date</div>
+        <div role="columnheader">Size</div>
+        
         <tree-node-collection
           *ngIf="treeModel.roots"
           [nodes]="treeModel.roots"
@@ -38,6 +44,7 @@ import pick from 'lodash/pick';
           [dropIndex]="0"
           [node]="treeModel.virtualRoot">
         </tree-node-drop-slot>
+       
       </div>
     </tree-viewport>
   `
@@ -85,15 +92,15 @@ export class TreeComponent implements OnChanges {
     public treeDraggedElement: TreeDraggedElement,
     private renderer: Renderer) {
 
-      treeModel.eventNames.forEach((name) => this[name] = new EventEmitter());
-      treeModel.subscribeToState((state) => this.stateChange.emit(state));
+    treeModel.eventNames.forEach((name) => this[name] = new EventEmitter());
+    treeModel.subscribeToState((state) => this.stateChange.emit(state));
   }
 
   @HostListener('body: keydown', ['$event'])
   onKeydown($event) {
     if (!this.treeModel.isFocused) return;
     if (includes(['input', 'textarea'],
-        document.activeElement.tagName.toLowerCase())) return;
+      document.activeElement.tagName.toLowerCase())) return;
 
     const focusedNode = this.treeModel.getFocusedNode();
 
